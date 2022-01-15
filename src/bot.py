@@ -25,9 +25,9 @@ def count_chest(account):
     buttons = positions(images['brown-chest'], threshold=ct['brown-chest'])
     new_value = len(buttons)
 
-    if (new_value +1) > account['chests']['brown']:
+    if new_value > (account['chests']['brown']+1):
         sendAllHeroesToWork(images, ct)
-    account['chests']['brown'] = len(buttons)
+    account['chests']['brown'] = new_value
 
 
 def bot_run(account, t , img):
