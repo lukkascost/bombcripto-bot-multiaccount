@@ -34,7 +34,6 @@ def bot_run(account, t , img):
     global images
     images = img
     now = time.time()
-    logger('Change to account '+str(account))
     if now - account["heroes"] > addRandomness(t['send_heroes_for_work'] * 60):
         account["heroes"] = now
         account["refresh_heroes"] = now
