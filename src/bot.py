@@ -24,7 +24,7 @@ login_attempts = 0
 def count_chest(account):
     buttons = positions(images['brown-chest'], threshold=ct['brown-chest'])
     new_value = len(buttons)
-
+    logger("CHEST COUNT - {} - OLD: {} - NEW: {}".format(account['name'], account['chests']['brown'], new_value))
     if new_value > (account['chests']['brown']+1):
         sendAllHeroesToWork(images, ct)
     account['chests']['brown'] = new_value
@@ -39,15 +39,11 @@ def bot_run(account, t , img):
         account["heroes"] = now
         account["refresh_heroes"] = now
         refreshHeroes()
-    else:
-        logger('🏢 No time to seach for work! '+ str(account))
 
     if now - account["login"] > addRandomness(t['check_for_login'] * 60):
         sys.stdout.flush()
         account["login"] = now
         login()
-    else:
-        logger('🏢 No time for login! '+  str(account))
 
     if now - account["new_map"] > t['check_for_new_map_button']:
         account["new_map"] = now
@@ -57,14 +53,10 @@ def bot_run(account, t , img):
             account["heroes"] = now
             account["refresh_heroes"] = now
             account['chests']['brown'] = 99999
-    else:
-        logger('🏢 No time to seach for new map! '+  str(account))
 
     if now - account["refresh_heroes"] > addRandomness(t['refresh_heroes_positions'] * 60):
         account["refresh_heroes"] = now
         refreshHeroesPositions()
-    else:
-        logger('🏢 No time refresh heroes position! '+  str(account))
     sys.stdout.flush()
 
 
