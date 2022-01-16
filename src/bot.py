@@ -148,6 +148,7 @@ def isWorking(bar, buttons):
             return False
     return True
 
+
 def clickGreenBarButtons():
     # ele clicka nos q tao trabaiano mas axo q n importa
     offset = 120
@@ -156,7 +157,6 @@ def clickGreenBarButtons():
     logger('🟩 %d green bars detected' % len(green_bars))
     buttons = positions(images['go-work'], threshold=ct['go_to_work_btn'])
     logger('🆗 %d buttons detected' % len(buttons))
-
 
     not_working_green_bars = []
     for bar in green_bars:
@@ -170,16 +170,15 @@ def clickGreenBarButtons():
     hero_clicks_cnt = 0
     for (x, y, w, h) in not_working_green_bars:
         # isWorking(y, buttons)
-        move_to_with_randomness(x+offset+(w/2),y+(h/2),1)
+        move_to_with_randomness(x + offset + (w / 2), y + (h / 2), 1)
         pyautogui.click()
-        global hero_clicks
-        # hero_clicks = hero_clicks + 1
         hero_clicks_cnt = hero_clicks_cnt + 1
-        if hero_clicks_cnt > 20:
+        if hero_clicks_cnt > 15:
             logger('⚠️ Too many hero clicks, try to increase the go_to_work_btn threshold')
             return
-        #cv2.rectangle(sct_img, (x, y) , (x + w, y + h), (0,255,255),2)
+        # cv2.rectangle(sct_img, (x, y) , (x + w, y + h), (0,255,255),2)
     return len(not_working_green_bars)
+
 
 def clickFullBarButtons():
     offset = 100
@@ -303,6 +302,7 @@ def refreshHeroes():
             buttonsClicked = clickFullBarButtons()
         elif c['select_heroes_mode'] == 'green':
             buttonsClicked = clickGreenBarButtons()
+            buttonsClicked = 0
         else:
             buttonsClicked = click_buttons()
 
