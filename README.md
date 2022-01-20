@@ -129,12 +129,12 @@ diferenciar o bot de um humano seja muito difícil.
 Para uso no formato multiconta deve ser previamente configurados os perfis no chrome e todos os perfis tenham o mesmo icone.
 
 
-![caminho](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/readme-images/chromes.png)
+![perfis-chrome](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/readme-images/chromes.png)
 
 Com os perfis configurados e com o mesmo icone, ajuste a image "chrome.png" na pasta target com o seu icone.
 
 
-![caminho](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/target/chrome.png)
+![target-chrome](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/target/chrome.png)
 
 
 
