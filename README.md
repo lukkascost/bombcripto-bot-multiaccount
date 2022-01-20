@@ -144,6 +144,15 @@ Deixe as janelas como na imagem abaixo.
 
 Aproveite quantas contas o seu pc aguentar :D !!!!
 
+
+### Feature: Soltar todos no inicio da fase.
+
+Para esta feature o bot usa duas imagens que devem ser ajustadas, a do botao all ![all](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/targets/go-work-all.png) e a imagem de um bau marrom sem dano ![all](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/targets/brown-chest.png)
+
+Sempre que a contagem de baús sem dano subir ele irá soltar os herois. 
+
+Isto aumentou meu farm em + ou - 10%.
+
 ### Por que uns ajustes podem ser necessários?
 
 O bot usa reconhecimento de imagem para tomar decisões e movimentar o mouse e
