@@ -134,9 +134,15 @@ Para uso no formato multiconta deve ser previamente configurados os perfis no ch
 Com os perfis configurados e com o mesmo icone, ajuste a image "chrome.png" na pasta target com o seu icone.
 
 
-![target-chrome](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/target/chrome.png)
+![target-chrome](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/targets/chrome.png)
 
+Agora entre no jogo em cada icone do chrome e ajuste a tela para permanecer em formato cascata, SEMPRE DEVE SER NESTE FORMATO NUNCA EM TELA CHEIA, pois em tela cheia o jogo por baixo nao executa.
 
+Deixe as janelas como na imagem abaixo. 
+
+![cascata](https://github.com/lukkascost/bombcripto-bot-multiaccount/raw/main/readme-images/cascata.png)
+
+Aproveite quantas contas o seu pc aguentar :D !!!!
 
 ### Por que uns ajustes podem ser necessários?
 
