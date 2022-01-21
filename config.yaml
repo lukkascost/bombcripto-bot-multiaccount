@@ -81,16 +81,16 @@
     #
     # [pt_BR]
     # Valor padrão: 0.9
-    go_to_work_btn: 0.6
+    go_to_work_btn: 0.9
 
-    go_to_work_all_btn: 0.6
+    go_to_work_all_btn: 0.9
 
     # [en_US]
     # Default value: 0.9
     #
     # [pt_BR]
     # Valor padrão: 0.9
-    green_bar: 0.6
+    green_bar: 0.9
 
 
 

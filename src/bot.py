@@ -151,7 +151,7 @@ def isWorking(bar, buttons):
 
 def clickGreenBarButtons():
     # ele clicka nos q tao trabaiano mas axo q n importa
-    offset = 120
+    offset = 140
 
     green_bars = positions(images['green-bar'], threshold=ct['green_bar'])
     logger('🟩 %d green bars detected' % len(green_bars))
