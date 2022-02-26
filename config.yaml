@@ -1,5 +1,20 @@
 ---
-
+  conta_0:
+    nome: "Meta1"
+    user: "username1"
+    pass: "password1"
+  conta_1:
+    nome: "Meta2"
+    user: "username2"
+    pass: "password2"
+  conta_2:
+    nome: "Meta3"
+    user: "username3"
+    pass: "password3"
+  conta_3:
+    nome: "Trezor"
+    user: "username4"
+    pass: "password4"
 
   # [en_US] Time intervals configuration
   #
@@ -39,14 +54,14 @@
     #
     # [pt_BR] Intervalo de tempo para verificar se existe solicitação de login
     # Valor padrão (em minutos): 5
-    check_for_login: 30
+    check_for_login: 3
 
     # [en_US] Time interval between moviments
     # Default value (in seconds): 1
     #
     # [pt_BR] Intervalo de tempo entre movimentos
     # Valor padrão (em segundos): 1
-    interval_between_moviments: 0.3
+    interval_between_moviments: 0.1
 
   # [en_US] How confident the bot needs to be to click the buttons (values from 0 to 1. 0 is the minimum value, 1 is the maximum value)
   #
@@ -153,3 +168,12 @@
   # Valor padrão : False
   # Opções disponíveis: False ou True
   save_log_to_file: False
+
+  # [en_US] Option to log with Metamask or using user and password
+  # Default value: True
+  # Available options: False or True
+  #
+  # [pt_BR] Opção para logar com a Metamask ou usando usuário e senha
+  # Valor padrão : False
+  # Opções disponíveis: False ou True
+  login_metamask: True

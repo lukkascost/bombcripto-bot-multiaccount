@@ -34,15 +34,15 @@ def bot_run(account, t , img):
     global images
     images = img
     now = time.time()
-    if now - account["heroes"] > addRandomness(t['send_heroes_for_work'] * 60):
-        account["heroes"] = now
-        account["refresh_heroes"] = now
-        refreshHeroes()
 
     if now - account["login"] > addRandomness(t['check_for_login'] * 60):
         sys.stdout.flush()
         account["login"] = now
-        login()
+        login(account)
+    if now - account["heroes"] > addRandomness(t['send_heroes_for_work'] * 60):
+        account["heroes"] = now
+        account["refresh_heroes"] = now
+        refreshHeroes()
 
     if now - account["new_map"] > t['check_for_new_map_button']:
         account["new_map"] = now
@@ -228,7 +228,8 @@ def refreshHeroesPositions():
     # time.sleep(3)
     click_btn(images['treasure-hunt-icon'])
 
-def login():
+
+def login(account):
     global login_attempts
     logger('😿 Checking if game has disconnected')
 
@@ -243,43 +244,72 @@ def login():
         login_attempts = login_attempts + 1
         #TODO mto ele da erro e poco o botao n abre
         # time.sleep(10)
+    if click_btn(images['username'], timeout = 2):
+        if c['login_metamask']:
 
-    if click_btn(images['select-wallet-2'], timeout=8):
-        # sometimes the sign popup appears imediately
-        login_attempts = login_attempts + 1
-        # print('sign button clicked')
-        # print('{} login attempt'.format(login_attempts))
-        if click_btn(images['treasure-hunt-icon'], timeout = 15):
-            # print('sucessfully login, treasure hunt btn clicked')
-            login_attempts = 0
-        return
-        # click ok button
+            if click_btn(images['metamask'], timeout=8):
+                # sometimes the sign popup appears imediately
+                login_attempts = login_attempts + 1
 
-    if not click_btn(images['select-wallet-1-no-hover'], ):
-        if click_btn(images['select-wallet-1-hover'], threshold = ct['select_wallet_buttons'] ):
-            pass
-            # o ideal era que ele alternasse entre checar cada um dos 2 por um tempo
-            # print('sleep in case there is no metamask text removed')
-            # time.sleep(20)
-    else:
-        pass
-        # print('sleep in case there is no metamask text removed')
-        # time.sleep(20)
+            if click_btn(images['select-wallet-2'], timeout=8):
+                # sometimes the sign popup appears imediately
+                login_attempts = login_attempts + 1
+                # print('sign button clicked')
+                # print('{} login attempt'.format(login_attempts))
+                if click_btn(images['treasure-hunt-icon'], timeout = 15):
+                    # print('sucessfully login, treasure hunt btn clicked')
+                    login_attempts = 0
+                return
+                # click ok button
 
-    if click_btn(images['select-wallet-2'], timeout = 20):
-        login_attempts = login_attempts + 1
-        # print('sign button clicked')
-        # print('{} login attempt'.format(login_attempts))
-        # time.sleep(25)
-        if click_btn(images['treasure-hunt-icon'], timeout=25):
-            # print('sucessfully login, treasure hunt btn clicked')
-            login_attempts = 0
-        # time.sleep(15)
+            if not click_btn(images['select-wallet-1-no-hover'], ):
+                if click_btn(images['select-wallet-1-hover'], threshold = ct['select_wallet_buttons'] ):
+                    pass
+                    # o ideal era que ele alternasse entre checar cada um dos 2 por um tempo
+                    # print('sleep in case there is no metamask text removed')
+                    # time.sleep(20)
+            else:
+                pass
+                # print('sleep in case there is no metamask text removed')
+                # time.sleep(20)
 
-    if click_btn(images['ok'], timeout=5):
-        pass
-        # time.sleep(15)
-        # print('ok button clicked')
+            if click_btn(images['select-wallet-2'], timeout = 20):
+                login_attempts = login_attempts + 1
+                # print('sign button clicked')
+                # print('{} login attempt'.format(login_attempts))
+                # time.sleep(25)
+                if click_btn(images['treasure-hunt-icon'], timeout=25):
+                    # print('sucessfully login, treasure hunt btn clicked')
+                    login_attempts = 0
+                # time.sleep(15)
+
+            if click_btn(images['ok'], timeout=5):
+                pass
+                # time.sleep(15)
+                # print('ok button clicked')
+
+        else:
+            pyautogui.write(account['user'])
+            click_btn(images['password'])
+            time.sleep(1)
+            pyautogui.write(account['password'])
+            login_attempts = login_attempts + 1
+            time.sleep(1)
+            if click_btn(images['login'], timeout = 20):
+                login_attempts = login_attempts + 1
+                # print('sign button clicked')
+                # print('{} login attempt'.format(login_attempts))
+                # time.sleep(25)
+                if click_btn(images['treasure-hunt-icon'], timeout=25):
+                    # print('sucessfully login, treasure hunt btn clicked')
+                    login_attempts = 0
+                # time.sleep(15)
+
+            if click_btn(images['ok'], timeout=5):
+                pass
+                # time.sleep(15)
+                # print('ok button clicked')
+
 
 
 def refreshHeroes():

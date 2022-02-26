@@ -28,7 +28,7 @@ def to_set_accounts(accounts):
         result[i] = {
             "name": "Chrome "+str(i),
             "chrome": k,
-            "login": time.time(),
+            "login": 0,
             "heroes": 0,
             "new_map": time.time(),
             "refresh_heroes": time.time(),
@@ -61,16 +61,13 @@ def main():
     accounts = positions(images['chrome'], threshold=ct['chrome'])
     accounts = to_set_accounts(accounts)
     index = 0
-    account = accounts[index % len(accounts)]
-    go_to_account(account)
     while True:
+        account = accounts[index % len(accounts)]
         sys.stdout.flush()
+        go_to_account(account)
         bot_run(account, t, images)
         count_chest(account)
         index +=1
-        account = accounts[index % len(accounts)]
-        if len(accounts) > 1: go_to_account(account)
-
 
 
 
