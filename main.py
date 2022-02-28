@@ -34,7 +34,9 @@ def to_set_accounts(accounts):
             "refresh_heroes": time.time(),
             "chests": {
                 "brown": 99999
-            }
+            },
+            "user": c['conta_'+str(i)]['user'],
+            "password": c['conta_'+str(i)]['pass']
     }
     return result
 
