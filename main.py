@@ -32,6 +32,7 @@ def to_set_accounts(accounts):
             "heroes": 0,
             "new_map": time.time(),
             "refresh_heroes": time.time(),
+            "send_coints": 0,
             "chests": {
                 "brown": 99999
             },

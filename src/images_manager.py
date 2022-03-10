@@ -96,7 +96,7 @@ def addRandomness(n, randomn_factor_size=None):
 
 
 def move_to_with_randomness(x, y, t):
-    pyautogui.moveTo(addRandomness(x, 10), addRandomness(y, 10), t + random() / 2)
+    pyautogui.moveTo(addRandomness(x-1920, 10), addRandomness(y, 10), t + random() / 2)
 
 
 def click_btn(img, timeout=3, threshold = ct['default']):

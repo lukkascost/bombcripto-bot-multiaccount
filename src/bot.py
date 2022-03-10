@@ -11,7 +11,7 @@ import sys
 from os import listdir
 from cv2 import cv2
 
-from src.logger import logger
+from src.logger import logger, logger_with_positions
 
 stream = open("config.yaml", 'r')
 c = yaml.safe_load(stream)
@@ -29,6 +29,14 @@ def count_chest(account):
         sendAllHeroesToWork(images, ct)
     account['chests']['brown'] = new_value
 
+
+def send_coins(account):
+    logger("Printing coins")
+    click_btn(images['coins'], threshold=ct['default'])
+    time.sleep(5)
+    logger_with_positions("Account ballance", [],account )
+    click_btn(images['x'])
+    time.sleep(1)
 
 def bot_run(account, t , img):
     global images
@@ -56,6 +64,10 @@ def bot_run(account, t , img):
     if now - account["refresh_heroes"] > addRandomness(t['refresh_heroes_positions'] * 60):
         account["refresh_heroes"] = now
         refreshHeroesPositions()
+
+    if now - account["send_coints"] > addRandomness(t['send_coints'] * 60):
+        account["send_coints"] = now
+        send_coins(account)
     sys.stdout.flush()
 
 

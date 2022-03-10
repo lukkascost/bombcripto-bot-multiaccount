@@ -1,4 +1,12 @@
 ---
+  # [en_US] Option to log with Metamask or using user and password
+  # Default value: True
+  # Available options: False or True
+  #
+  # [pt_BR] Opção para logar com a Metamask ou usando usuário e senha
+  # Valor padrão : False
+  # Opções disponíveis: False ou True
+  login_metamask: False
   conta_0:
     nome: "Meta1"
     user: "username1"
@@ -62,6 +70,7 @@
     # [pt_BR] Intervalo de tempo entre movimentos
     # Valor padrão (em segundos): 1
     interval_between_moviments: 0.1
+    send_coints: 30
 
   # [en_US] How confident the bot needs to be to click the buttons (values from 0 to 1. 0 is the minimum value, 1 is the maximum value)
   #
@@ -169,11 +178,3 @@
   # Opções disponíveis: False ou True
   save_log_to_file: False
 
-  # [en_US] Option to log with Metamask or using user and password
-  # Default value: True
-  # Available options: False or True
-  #
-  # [pt_BR] Opção para logar com a Metamask ou usando usuário e senha
-  # Valor padrão : False
-  # Opções disponíveis: False ou True
-  login_metamask: True
