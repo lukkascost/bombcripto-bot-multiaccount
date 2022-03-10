@@ -26,7 +26,7 @@ def to_set_accounts(accounts):
     result = dict()
     for i,k in enumerate(accounts):
         result[i] = {
-            "name": "Chrome "+str(i),
+            "name": c["conta_" + str(i)]['nome'],
             "chrome": k,
             "login": 0,
             "heroes": 0,
