@@ -124,6 +124,19 @@ def show(rectangles, img = None):
 def scroll():
 
     commoms = positions(images['commom-text'], threshold = ct['commom'])
+    rare = positions(images['rare-text'], threshold = ct['commom'])
+    sr = positions(images['sr-text'], threshold = ct['commom'])
+    epic = positions(images['epic-text'], threshold = ct['commom'])
+    legend = positions(images['legend-text'], threshold = ct['commom'])
+    if len(rare) > 0:
+        commoms = rare if commoms == [] else np.append(commoms, rare, axis=0)
+    if len(sr) > 0:
+        commoms = sr if commoms == [] else np.append(commoms, sr, axis=0)
+    if len(epic) > 0:
+        commoms = epic if commoms == [] else np.append(commoms, epic, axis=0)
+    if len(legend) > 0:
+        commoms = legend if commoms == [] else np.append(commoms, legend, axis=0)
+
     if (len(commoms) == 0):
         return
     x,y,w,h = commoms[len(commoms)-1]
